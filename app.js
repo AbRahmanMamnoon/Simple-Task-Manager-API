@@ -11,7 +11,7 @@ app.use(express.json());
 
 app.use("/api/v1/tasks", taskRouts);
 
-/// Not Found the page
+/// Not Found
 app.use(notfound);
 // Error Handler
 app.use(errHandlerMiddlware);
