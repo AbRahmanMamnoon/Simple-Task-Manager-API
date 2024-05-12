@@ -3,7 +3,6 @@ const taskRouts = require("./routs/taskRouts");
 const connectDB = require("./db/connection");
 const notfound = require("./middleware/not-found");
 const errHandlerMiddlware = require("./middleware/err-handler");
-require("dotenv").config();
 const app = express();
 
 // Middlewar
@@ -17,10 +16,10 @@ app.use(notfound);
 // Error Handler
 app.use(errHandlerMiddlware);
 
-const port = process.env.port || 3000;
+const port = 3000;
 const start = async () => {
   try {
-    await connectDB(process.env.MONGO_URI);
+    await connectDB("mongodb://localhost:27017/Task-Manager");
     app.listen(port, console.log(`Server is listening on port: ${port}...`));
   } catch (error) {
     console.log(error);
